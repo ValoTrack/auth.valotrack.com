@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://kit.fontawesome.com/b793aa7b97.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/now-ui-kit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://discordbotlist.com/widget/index.js" async></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800,900&display=swap" rel="stylesheet">
+    <title>Your ValoTrack Sync name</title>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar sticky-top navbar-expand-lg bg-transparent my-0">
+        <div class="container-fluid">
+          <a class="navbar-brand" href=""><img class="me-0" src="assets/icon.png" height="50px"><span style="color: white;font-size: 1.5rem;">aloTrack sync</span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+            </ul>
+            <form class="d-flex" style=" font-size: 11px !important;">
+                <button class="btn login-btn" type="submit"><i class="fab fa-github me-3"></i>  Github Repository</button>
+              <button class="btn login-btn" href="https://discord.com/api/oauth2/authorize?client_id=900426511268610048&permissions=2415922176&scope=bot%20applications.commands" target="_blank" role="button"><i class="fab fa-discord me-3"></i>Add to server</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+<div class="loading animate__animated" id="loading"></div>
+<div class="container commands mt-5" id="commands">
+    <div class="row p-4 pb-0 px-lg-4 py-lg-4 align-items-center rounded-3 bg-valotools-main shadow-lg">
+        <div class="col-lg-6 p-0" style="border-right: 1px solid #00000073;">
+          <div class="row animate__animated " id="discordlogin">
+            <div class="start">
+                <div class="card">
+                    <div class="card-body gs-card center-text justify-content-center">
+                        <br />
+                            <div class="row d-flex justify-content-center">
+                                <img src="assets/icon.png" id="userimage" class="userimage rounded-circle" alt="Cinque Terre"> 
+                            </div>
+                            <div class="row d-flex justify-content-center mt-5">
+                                <div class="d-flex justify-content-center" id="info"> looks like you didn't authenticate yet</div>
+                                <div class="d-flex justify-content-center" style="display: none;" id="username"></div>
+                            </div>
+                            <div class="row d-flex justify-content-center mt-3">
+                                <button class="btn btn-primary" style="display: none;" id="login" onclick="window.location.href='https://discord.com/api/oauth2/authorize?client_id=900426511268610048&redirect_uri=http%3A%2F%2Flocalhost%3A53134&response_type=token&scope=identify%20guilds'"> Login</button>
+                                <button class="btn btn-primary" style="display: none;" id="continue" onclick="riotlogin()"> Link your Valorant Account</button>  
+                            </div>
+                            <div class="row d-flex justify-content-center mt-3">
+                            <span id="logoutspan" style="display: none; text-align: end;">not <a href="">Vesturo?</a></span>
+                            </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+          </div>
+          <div class="row hidden animate__animated" id="riotlogin" style="opacity: 0;">
+            <div class="start">
+                <div class="card">
+                    <div class="card-body gs-card center-text justify-content-center">
+                      <div class="d-flex justify-content-center" id="syncedaccount"></div>
+                        <br />
+                        <form onsubmit="return ReSync()" class="pb-5 px-5" id="mainform">
+                          <div class="form-floating mb-3">
+                              <div class="wrapper">
+                                  <input type="username" class="form-control" name="valorantusername" id="valorantusername" aria-describedby="username" placeholder="valorantdev">
+                                  <i class="fas fa-user"></i>
+                                  
+                              </div>
+                          </div>
+                          <div class="form-floating mb-3">
+                              <div class="wrapper">
+                                  <input type="tag" class="form-control" name="valoranttag" id="valoranttag" aria-describedby="tag" placeholder="1337">
+                                  <i class="fas fa-hashtag"></i>
+                              </div>
+                          </div>
+                          <div class="wrapper">
+                              <select class="form-select" id="valorantregionselect" name="valorantregionselect" aria-describedby="valorantregionselect" aria-label="region">
+                                  <option selected>choose your region</option>
+                                  <option value="eu">Europe</option>
+                                  <option value="na">North-America</option>
+                                  <option value="ap">Asia</option>
+                                  <option value="kr">Korea</option>
+                              </select>
+                              <i class="fas fa-globe"></i>
+                          </div>
+                           <div class="mt-5">
+                              <div class="d-grid gap-2">
+                                  <button type="submit" class="btn btn-primary">Save Account</button>
+                              </div>
+                           </div>
+                      </form>
+                    </div>
+                    <br />
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 p-5">
+            <img class="rounded-lg-3" src="assets/icon.png" alt="" width="720">
+        </div>
+      </div>
+</div>
+<div class="page_end mt-auto">
+    <div class="footer">
+        <div class="ValoTrack Sync-footer">
+            <img src="assets/icon.png" width="50"><br />
+            Copyright © Studio 5 - 2020
+        </div>
+    </di>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="js/now-ui-kit.min.js"></script>
+<script>
+	window.onload = () => {
+		const fragment = new URLSearchParams(window.location.hash.slice(1));
+		const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
+
+		if (!accessToken) {
+      document.getElementById('loading').classList.add("animate__fadeOut");
+        document.getElementById('loading').addEventListener('animationend', () => {
+          document.getElementById('loading').style.display = 'none';
+        });
+			return document.getElementById('login').style.display = 'block';
+		}
+
+		fetch('https://discord.com/api/users/@me', {
+			headers: {
+				authorization: `${tokenType} ${accessToken}`,
+			},
+		})
+			.then(result => result.json())
+			.then(response => {
+				const { id,username, discriminator, avatar} = response;
+				document.getElementById('info').innerText = `welcome back,`;
+        document.getElementById('username').innerText = `${username}#${discriminator}`;
+        document.getElementById('login').style.display = 'block';
+        document.getElementById('userimage').src=`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`;
+        document.getElementById('login').style.display = 'none';
+        document.getElementById('continue').style.display = 'block';
+        document.getElementById('logoutspan').style.display = 'block';
+        document.getElementById('loading').classList.add("animate__fadeOut");
+        document.getElementById('loading').addEventListener('animationend', () => {
+          document.getElementById('loading').style.display = 'none';
+        });
+			})
+			.catch(console.error);
+	};
+</script>
+<script>
+  function riotlogin() {
+    document.getElementById('discordlogin').classList.add("animate__fadeOut");
+    document.getElementById('discordlogin').addEventListener('animationend', () => {
+      document.getElementById('discordlogin').style.display = 'none';
+      document.getElementById('riotlogin').classList.remove('hidden');
+      document.getElementById('riotlogin').classList.add('animate__fadeIn');
+});
+  }
+</script>
+<script>
+  function ReSync() {
+    var valorantusername = document.getElementById("valorantusername").value;
+    var valoranttag = document.getElementById("valoranttag").value;
+    var e = document.getElementById("valorantregionselect");
+	  var valorantregion = e.options[e.selectedIndex].text;
+    document.getElementById('syncedaccount').innerText = `Currently Synced with: ${valorantusername}#${valoranttag} (${valorantregion})`;
+
+  }
+</script>
+</body>
