@@ -51,7 +51,7 @@
                                 <div class="d-flex justify-content-center" style="display: none;" id="username"></div>
                             </div>
                             <div class="row d-flex justify-content-center mt-3">
-                                <button class="btn btn-primary disabled" style="display: none;" id="login" onclick="window.location.href='https://discord.com/api/oauth2/authorize?client_id=900426511268610048&redirect_uri=http%3A%2F%2Flocalhost%3A53134&response_type=token&scope=identify%20guilds'" disabled> Login</button>
+                                <button class="btn btn-primary " style="display: none;" id="login" onclick="window.location.href='https://discord.com/api/oauth2/authorize?client_id=900426511268610048&redirect_uri=http%3A%2F%2Flocalhost%3A53134&response_type=token&scope=identify%20guilds'" > Login</button>
                                 <button class="btn btn-primary" style="display: none;" id="continue" onclick="riotlogin()"> Link your Valorant Account</button>  
                             </div>
                             <div class="row d-flex justify-content-center mt-3">
@@ -121,6 +121,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="js/now-ui-kit.min.js"></script>
+<script src="/Sync.js"></script>
 <script>
 	window.onload = () => {
 		const fragment = new URLSearchParams(window.location.hash.slice(1));

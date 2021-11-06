@@ -2,6 +2,7 @@
   "dependencies": {
     "debug": "^4.3.2",
     "express": "^4.17.1",
+    "jquery": "^3.6.0",
     "mysql2": "^2.3.2"
   },
   "name": "valotrack-sync-frontend",
@@ -20,5 +21,6 @@
   "bugs": {
     "url": "https://github.com/vesturo/valoRank-syncpage/issues"
   },
-  "homepage": "https://github.com/vesturo/valoRank-syncpage#readme"
+  "homepage": "https://github.com/vesturo/valoRank-syncpage#readme",
+  "devDependencies": {}
 }
